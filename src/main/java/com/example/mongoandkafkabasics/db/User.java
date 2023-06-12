@@ -1,4 +1,4 @@
-package db;
+package com.example.mongoandkafkabasics.db;
 
 import lombok.*;
 
@@ -8,4 +8,8 @@ import lombok.*;
 @NoArgsConstructor
 @EqualsAndHashCode
 public class User {
+
+    String name;
+    String email;
+
 }
