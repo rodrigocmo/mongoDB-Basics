@@ -20,8 +20,12 @@ public class UserService {
     }
 
 
-    public User findByIds(String id) {
+    public User findById(String id) {
         Optional<User> obj = repository.findById(id);
         return obj.orElseThrow(() -> new GenericException("Objeto não encontrado"));
+    }
+
+    public User saveUser(User user){
+       return repository.insert(user);
     }
 }
