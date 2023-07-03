@@ -33,5 +33,7 @@ public class UserController {
         return ResponseEntity.created(uri).build();
         //return new ResponseEntity<>(service.saveUser(user), HttpStatus.OK);
     }
-
+public void addnewFeature(){
+        //remeber to add new commit every single day
+}
 }
