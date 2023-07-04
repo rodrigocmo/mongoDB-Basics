@@ -28,4 +28,9 @@ public class UserService {
     public User saveUser(User user){
        return repository.insert(user);
     }
+
+    public void delete(String id){
+        Optional<User> user = repository.findById(id);
+        user.ifPresent(value -> repository.delete(value));
+    }
 }
