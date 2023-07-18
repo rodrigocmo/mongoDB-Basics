@@ -1,9 +1,7 @@
 package com.example.mongoandkafkabasics.service;
 
 import com.example.mongoandkafkabasics.db.Post;
-import com.example.mongoandkafkabasics.db.User;
 import com.example.mongoandkafkabasics.repository.PostRepository;
-import com.example.mongoandkafkabasics.repository.UserRepository;
 import com.example.mongoandkafkabasics.service.exception.GenericException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,7 +26,7 @@ public class PostService {
 
     }
 
-    public Post saveUser(Post post){
+    public Post savePost(Post post){
        return repository.insert(post);
     }
 
