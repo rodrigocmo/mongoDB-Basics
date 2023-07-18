@@ -18,6 +18,7 @@ public class PostController {
 
     @Autowired
     private PostService service;
+
     @Autowired
     private UserService userService;
 
@@ -27,7 +28,12 @@ public class PostController {
     }
 
     @GetMapping(path ="/{id}")
-    public ResponseEntity<List<Post>> findPostByUserId(@PathVariable String id){
+    public ResponseEntity<Post> findPostByUserId(@PathVariable String id){
+        return ResponseEntity.ok().body(service.findById(id));
+    }
+
+    @GetMapping(path ="/{id}")
+    public ResponseEntity<List<Post>> findById(@PathVariable String id){
         User obj = userService.findById(id);
         return ResponseEntity.ok().body(obj.getPost());
     }
