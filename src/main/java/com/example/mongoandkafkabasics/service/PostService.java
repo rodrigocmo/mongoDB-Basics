@@ -34,4 +34,7 @@ public class PostService {
         Optional<Post> post = repository.findById(id);
         post.ifPresent(value -> repository.delete(value));
     }
+    public List<Post> findByTitleContaining(String name){
+        return repository.findByTitleContaining(name);
+    }
 }

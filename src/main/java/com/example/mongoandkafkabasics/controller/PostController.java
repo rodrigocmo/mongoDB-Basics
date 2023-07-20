@@ -2,6 +2,7 @@ package com.example.mongoandkafkabasics.controller;
 
 import com.example.mongoandkafkabasics.db.Post;
 import com.example.mongoandkafkabasics.db.User;
+import com.example.mongoandkafkabasics.service.DecoderService;
 import com.example.mongoandkafkabasics.service.PostService;
 import com.example.mongoandkafkabasics.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,12 @@ public class PostController {
     public ResponseEntity<List<Post>> findById(@PathVariable String id){
         User obj = userService.findById(id);
         return ResponseEntity.ok().body(obj.getPost());
+    }
+
+    @GetMapping(path ="/searchtitle")
+    public ResponseEntity<List<Post>> findByTitle(@RequestParam(value="text",defaultValue = "") String title){
+        title = DecoderService.decoder(title);
+        return ResponseEntity.ok().body(service.findByTitleContaining(title));
     }
 
     @PostMapping(path="/save")
